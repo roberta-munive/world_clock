@@ -8,18 +8,44 @@
     <title>World Clock</title>
   </head>
   <body>
-    <h1>World Clock</h1>
-    <footer>
-      Coded by
-      <a href="https://github.com/roberta-munive" target="_blank">Roberta</a> on
-      <a href="https://github.com/roberta-munive/world_clock" target="_blank"
-        >GitHub</a
-      >
-      and 
-      <a href="https://timely-world-clock.netlify.app/" target="_blank"
-        >hosted on Netlify</a
-      >
-    </footer>
+    <div class="project-container">
+      <h1>World Clock</h1>
+      <select name="city" id="city-dropdown">
+        <option value="">Select a city</option>
+        <option value="">Lisbon 🇵🇹</option>
+        <option value="">London 🇬🇧</option>
+        <option value="">New York 🇺🇸</option>
+      </select>
+
+      <div class="city-data">
+        <h2 class="displayed-city">Los Angeles 🇺🇸</h2>
+        <p class="date">August 15th, 2022</p>
+        <p class="time">1:48:15 AM</p>
+      </div>
+
+      <hr />
+
+      <div class="city-data">
+        <h2 class="displayed-city">Sydney 🇦🇺</h2>
+        <p class="date">August 15th, 2022</p>
+        <p class="time">1:48:15 AM</p>
+      </div>
+
+      <hr />
+
+      <footer>
+        Coded by
+        <a href="https://github.com/roberta-munive" target="_blank">Roberta</a>
+        on
+        <a href="https://github.com/roberta-munive/world_clock" target="_blank"
+          >GitHub</a
+        >
+        and
+        <a href="https://timely-world-clock.netlify.app/" target="_blank"
+          >hosted on Netlify</a
+        >
+      </footer>
+    </div>
     <script src="javascript\index.js"></script>
   </body>
 </html>

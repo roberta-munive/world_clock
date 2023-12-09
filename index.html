@@ -3,36 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet" />
+
     <!-- custom CSS -->
     <link rel="stylesheet" href="css\style.css" />
     <title>World Clock</title>
   </head>
   <body>
     <div class="project-container">
-      <h1>World Clock</h1>
-      <select name="city" id="city-dropdown">
-        <option value="">Select a city</option>
-        <option value="">Lisbon 🇵🇹</option>
-        <option value="">London 🇬🇧</option>
-        <option value="">New York 🇺🇸</option>
-      </select>
+      <!-- clock section -->
+      <div class="clock-container">
+        <h1>World Clock</h1>
 
-      <div class="city-data">
-        <h2 class="displayed-city">Los Angeles 🇺🇸</h2>
-        <p class="date">August 15th, 2022</p>
-        <p class="time">1:48:15 AM</p>
+        <select class="city-dropdown" name="city" id="city-dropdown">
+          <option value="">Select a city</option>
+          <option value="">Lisbon  🇵🇹</span></option>
+          <option value="">London  🇬🇧</option>
+          <option value="">New York  🇺🇸</option>
+        </select>
+
+        <div class="local-city-data">
+          <div class="left-side">
+            <h2 class="local-timezone">Local Time Zone or City</h2>
+            <p class="local-date">August 15, 2022</p>
+          </div>
+          <p class="local-time">1:48:15 <small>AM</small></p>
+        </div>
+
+        <div class="city-data">
+          <div class="left-side">
+            <h2 class="displayed-city">France <span class="city-icon"> 🇫🇷</span></h2>
+            <p class="date">August 15, 2022</p>
+          </div>
+          <p class="time">1:48:15 <small>AM</small></p>
+        </div>
+
+        <div class="city-data">
+          <div class="left-side">
+            <h2 class="displayed-city">Sydney <span class="city-icon"> 🇦🇺</span></h2>
+            <p class="date">August 15, 2022</p>
+          </div>
+          <p class="time">1:48:15 <small>AM</small></p>
+        </div>
       </div>
 
-      <hr />
-
-      <div class="city-data">
-        <h2 class="displayed-city">Sydney 🇦🇺</h2>
-        <p class="date">August 15th, 2022</p>
-        <p class="time">1:48:15 AM</p>
-      </div>
-
-      <hr />
-
+      <!-- footer section -->
       <footer>
         Coded by
         <a href="https://github.com/roberta-munive" target="_blank">Roberta</a>

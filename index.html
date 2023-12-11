@@ -25,23 +25,16 @@
 
         <select class="city-dropdown" name="city" id="city-dropdown">
           <option value="">Select a city</option>
+          <option value="current">My current location</option>
           <option value="Europe/Lisbon">Lisbon 🇵🇹</option>
           <option value="America/Los_Angeles">Los Angeles 🇺🇸</option>
           <option value="Europe/Paris">Paris 🇫🇷</option>
           <option value="Australia/Sydney">Sydney 🇦🇺</option>
         </select>
 
-        <div class="local-city-data">
-          <div class="left-side">
-            <h2 class="local-timezone">Local Time Zone or City</h2>
-            <p class="local-date">August 15, 2022</p>
-          </div>
-          <p class="local-time">1:48:15 <small>AM</small></p>
-        </div>
-
         <div
-          class="non-local-displayed-cities-container"
-          id="non-local-displayed-cities-container">
+          class="displayed-cities-container"
+          id="displayed-cities-container">
           <div class="city-data" id="london">
             <div class="left-side">
               <h2 class="displayed-city">

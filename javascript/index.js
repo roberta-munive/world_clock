@@ -1,14 +1,18 @@
 function displayCityDataFromDropdownChoice(event) {
   let cityTimeZone = event.target.value;
-  let nonLocalCityDisplayLocator = document.querySelector(
-    "#non-local-displayed-cities-container"
+  let displayedCitiesLocator = document.querySelector(
+    "#displayed-cities-container"
   );
+
+  if(cityTimeZone === "current"){
+    cityTimeZone = moment.tz.guess();
+  }
 
   if (cityTimeZone.length > 0) {
     let cityName = formatCityNameFromTimeZone(cityTimeZone);
 
-    nonLocalCityDisplayLocator.innerHTML = `
-      <div class="city-data" id="dropdown-city" value=${cityTimeZone}>
+    displayedCitiesLocator.innerHTML = `
+      <div class="city-data" id="dropdown-city">
         <div class="left-side">
           <h2 class="displayed-city">
             ${cityName}
@@ -28,11 +32,11 @@ function displayCityDataFromDropdownChoice(event) {
 }
 
 function displayDefaultCityData() {
-  let nonLocalCityDisplayLocator = document.querySelector(
-    "#non-local-displayed-cities-container"
+  let displayedCitiesLocator = document.querySelector(
+    "#displayed-cities-container"
   );
 
-  nonLocalCityDisplayLocator.innerHTML = `
+  displayedCitiesLocator.innerHTML = `
       <div class="city-data" id="london">
       <div class="left-side">
         <h2 class="displayed-city">

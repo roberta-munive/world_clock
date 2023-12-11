@@ -29,8 +29,7 @@ h1 {
   padding: 20px 40px;
 }
 
-.city-data,
-.local-city-data {
+.city-data {
   align-items: center;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
   display: flex;
@@ -41,27 +40,23 @@ h1 {
   border: none;
 }
 
-.displayed-city,
-.local-timezone {
+.displayed-city {
   font-size: 28px;
   margin-bottom: 0;
   margin-top: 20px;
 }
 
-.date,
-.local-date {
+.date {
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 28px;
   margin-top: 0;
 }
 
-.local-time,
 .time {
   font-size: 42px;
   font-weight: bold;
 }
 
-.local-time small,
 .time small {
   font-size: 20px;
   vertical-align: middle;

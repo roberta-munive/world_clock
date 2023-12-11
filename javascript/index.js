@@ -1,3 +1,66 @@
+function displayCityDataFromDropdownChoice(event) {
+  let cityTimeZone = event.target.value;
+  let nonLocalCityDisplayLocator = document.querySelector(
+    "#non-local-displayed-cities-container"
+  );
+
+  if (cityTimeZone.length > 0) {
+    let cityName = formatCityNameFromTimeZone(cityTimeZone);
+
+    nonLocalCityDisplayLocator.innerHTML = `
+      <div class="city-data" id="dropdown-city" value=${cityTimeZone}>
+        <div class="left-side">
+          <h2 class="displayed-city">
+            ${cityName}
+          </h2>
+          <p class="date">${moment().tz(cityTimeZone).format("MMMM Do, YYYY")}
+          </p>
+        </div>
+        <p class="time">${moment()
+          .tz(cityTimeZone)
+          .format("h:mm:ss [<small>]A[</small>]")}
+        </p>
+      </div>
+    `;
+  } else {
+    displayDefaultCityData();
+  }
+}
+
+function displayDefaultCityData() {
+  let nonLocalCityDisplayLocator = document.querySelector(
+    "#non-local-displayed-cities-container"
+  );
+
+  nonLocalCityDisplayLocator.innerHTML = `
+      <div class="city-data" id="london">
+      <div class="left-side">
+        <h2 class="displayed-city">
+          London <span class="city-icon"> 🇬🇧</span>
+        </h2>
+        <p class="date"></p>
+      </div>
+      <p class="time"></p>
+    </div>
+
+    <div class="city-data" id="new-york">
+      <div class="left-side">
+        <h2 class="displayed-city">
+          New York <span class="city-icon"> 🇺🇸</span>
+        </h2>
+        <p class="date"></p>
+      </div>
+      <p class="time"></p>
+    </div>
+  `;
+}
+
+function formatCityNameFromTimeZone(timeZone) {
+  let cityName = timeZone.split("/")[1].replace("_", " ");
+
+  return cityName;
+}
+
 function updateTime() {
   // New York
 
@@ -13,33 +76,26 @@ function updateTime() {
       .format("h:mm:ss [<small>]A[</small>]");
   }
 
-  // Paris
+  // London
 
-  let parisLocator = document.querySelector("#paris");
-  if (parisLocator) {
-    let parisDateLocator = parisLocator.querySelector(".date");
-    let parisTimeLocator = parisLocator.querySelector(".time");
-    parisDateLocator.innerHTML = moment()
-      .tz("Europe/Paris")
+  let londonLocator = document.querySelector("#london");
+  if (londonLocator) {
+    let londonDateLocator = londonLocator.querySelector(".date");
+    let londonTimeLocator = londonLocator.querySelector(".time");
+    londonDateLocator.innerHTML = moment()
+      .tz("Europe/London")
       .format("MMMM Do, YYYY");
-    parisTimeLocator.innerHTML = moment()
-      .tz("Europe/Paris")
-      .format("h:mm:ss [<small>]A[</small>]");
-  }
-
-  // Sydney
-  let sydneyLocator = document.querySelector("#sydney");
-  if (sydneyLocator) {
-    let sydneyDateLocator = sydneyLocator.querySelector(".date");
-    let sydneyTimeLocator = sydneyLocator.querySelector(".time");
-    sydneyDateLocator.innerHTML = moment()
-      .tz("Australia/Sydney")
-      .format("MMMM Do, YYYY");
-    sydneyTimeLocator.innerHTML = moment()
-      .tz("Australia/Sydney")
+    londonTimeLocator.innerHTML = moment()
+      .tz("Europe/London")
       .format("h:mm:ss [<small>]A[</small>]");
   }
 }
 
 updateTime();
 setInterval(updateTime, 1000);
+
+let cityDropdownLocator = document.querySelector("#city-dropdown");
+cityDropdownLocator.addEventListener(
+  "change",
+  displayCityDataFromDropdownChoice
+);

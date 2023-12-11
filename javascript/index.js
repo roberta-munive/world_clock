@@ -4,7 +4,7 @@ function displayCityDataFromDropdownChoice(event) {
     "#displayed-cities-container"
   );
 
-  if(cityTimeZone === "current"){
+  if (cityTimeZone === "current") {
     cityTimeZone = moment.tz.guess();
   }
 
@@ -22,12 +22,18 @@ function displayCityDataFromDropdownChoice(event) {
         </div>
         <p class="time">${moment()
           .tz(cityTimeZone)
-          .format("h:mm:ss [<small>]A[</small>]")}
+          .format("h:mm [<small>]A[</small>]")}
         </p>
       </div>
+      <button id="reset-cities-btn">Reset Cities</button>
     `;
   } else {
     displayDefaultCityData();
+  }
+
+  let resetCitiesBtnLocator = document.querySelector("#reset-cities-btn");
+  if (resetCitiesBtnLocator) {
+    resetCitiesBtnLocator.addEventListener("click", displayDefaultCityData);
   }
 }
 
@@ -57,6 +63,12 @@ function displayDefaultCityData() {
       <p class="time"></p>
     </div>
   `;
+
+  // reset the dropdown menu to the default value of "Select a city" so the previous selection by the user is not retained in the dropdown window
+  let cityDropDownDefaultValueSelector = (document.querySelector(
+    "#city-dropdown"
+  ).selectedIndex = "0");
+  cityDropDownDefaultValueSelector;
 }
 
 function formatCityNameFromTimeZone(timeZone) {

@@ -6,6 +6,25 @@ body {
   margin: 0 auto;
 }
 
+/* the reset cities button appears in function displayCityDataFromDropdownChoice  */
+
+#reset-cities-btn {
+  background-color: #714288;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 5px 10px;
+  transition: all 150ms ease-in-out;
+}
+
+#reset-cities-btn:hover {
+  cursor: pointer;
+  transform: scale(0.8);
+}
+
 /* clock section */
 
 h1 {

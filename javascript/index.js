@@ -43,7 +43,18 @@ function displayDefaultCityData() {
   );
 
   displayedCitiesLocator.innerHTML = `
-      <div class="city-data" id="london">
+
+    <div class="city-data" id="athens">
+      <div class="left-side">
+        <h2 class="displayed-city">
+        Athens <span class="city-icon"> 🇬🇷</span>
+        </h2>
+        <p class="date"></p>
+      </div>
+      <p class="time"></p>
+    </div>  
+
+    <div class="city-data" id="london">
       <div class="left-side">
         <h2 class="displayed-city">
           London <span class="city-icon"> 🇬🇧</span>
@@ -78,17 +89,17 @@ function formatCityNameFromTimeZone(timeZone) {
 }
 
 function updateTime() {
-  // New York
+  // Athens
 
-  let newYorkLocator = document.querySelector("#new-york");
-  if (newYorkLocator) {
-    let newYorkDateLocator = newYorkLocator.querySelector(".date");
-    let newYorkTimeLocator = newYorkLocator.querySelector(".time");
-    newYorkDateLocator.innerHTML = moment()
-      .tz("America/New_York")
+  let athensLocator = document.querySelector("#athens");
+  if (athensLocator) {
+    let athensDateLocator = athensLocator.querySelector(".date");
+    let athensTimeLocator = athensLocator.querySelector(".time");
+    athensDateLocator.innerHTML = moment()
+      .tz("Europe/Athens")
       .format("MMMM Do, YYYY");
-    newYorkTimeLocator.innerHTML = moment()
-      .tz("America/New_York")
+    athensTimeLocator.innerHTML = moment()
+      .tz("Europe/Athens")
       .format("h:mm:ss [<small>]A[</small>]");
   }
 
@@ -103,6 +114,20 @@ function updateTime() {
       .format("MMMM Do, YYYY");
     londonTimeLocator.innerHTML = moment()
       .tz("Europe/London")
+      .format("h:mm:ss [<small>]A[</small>]");
+  }
+
+  // New York
+
+  let newYorkLocator = document.querySelector("#new-york");
+  if (newYorkLocator) {
+    let newYorkDateLocator = newYorkLocator.querySelector(".date");
+    let newYorkTimeLocator = newYorkLocator.querySelector(".time");
+    newYorkDateLocator.innerHTML = moment()
+      .tz("America/New_York")
+      .format("MMMM Do, YYYY");
+    newYorkTimeLocator.innerHTML = moment()
+      .tz("America/New_York")
       .format("h:mm:ss [<small>]A[</small>]");
   }
 }
